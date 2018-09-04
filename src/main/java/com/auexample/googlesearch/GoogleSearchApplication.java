@@ -28,9 +28,8 @@ public class GoogleSearchApplication implements CommandLineRunner {
         while (!key.equals("q")) {
             Scanner scanner = new Scanner(System.in);
             key = scanner.nextLine();
-
             assessment.googleSearchAndFindJS(key);
-            System.out.println("Your username is " + key);
+
         }
 
 

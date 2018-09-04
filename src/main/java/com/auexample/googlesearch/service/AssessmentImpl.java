@@ -28,7 +28,7 @@ public class AssessmentImpl implements Assessment {
             List<String> urlList = googleSearch.search(query);
 
 
-            Map<String, Integer> map = urlList.stream().map(s -> {
+            Map<String, Integer> map = urlList.stream().parallel().map(s -> {
                 return jsCrawler.searchJsInPage(s);
             }).collect(Collectors.toList()).stream().flatMap(m -> m.entrySet().stream())
                     .collect(groupingBy(Map.Entry::getKey, summingInt(Map.Entry::getValue)));

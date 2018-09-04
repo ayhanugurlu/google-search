@@ -17,10 +17,8 @@ import org.springframework.stereotype.Service;
 public class JSCrawlerImpl implements JSCrawler {
 
 
-
-
     public Map<String, Integer> searchJsInPage(String URL) {
-        Map<String,Integer> jsLinkMap = new HashMap<>();
+        Map<String, Integer> jsLinkMap = new HashMap<>();
         try {
             // Fetch the HTML code
             Document document = Jsoup.connect(URL).get();
@@ -30,13 +28,13 @@ public class JSCrawlerImpl implements JSCrawler {
             // For each extracted JS adding to hashset
             for (Element page : linksOnPage) {
                 String src = page.attr("src");
-                int jsSrcCount = jsLinkMap.getOrDefault(src,0);
-                jsLinkMap.put(src,++jsSrcCount);
+                int jsSrcCount = jsLinkMap.getOrDefault(src, 0);
+                jsLinkMap.put(src, ++jsSrcCount);
             }
         } catch (IOException e) {
             System.err.println("For '" + URL + "': " + e.getMessage());
         }
-        return  jsLinkMap;
+        return jsLinkMap;
     }
 
 }

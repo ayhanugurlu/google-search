@@ -1,8 +1,6 @@
 package com.auexample.googlesearch.service;
 
 import java.io.IOException;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
 import java.util.List;
 
 /**
