@@ -1,5 +1,6 @@
 package com.auexample.googlesearch;
 
+import com.auexample.googlesearch.service.Assessment;
 import com.auexample.googlesearch.service.GoogleSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
@@ -12,7 +13,7 @@ import java.util.Scanner;
 public class GoogleSearchApplication implements CommandLineRunner {
 
     @Autowired
-    GoogleSearch googleSearch;
+    Assessment assessment;
 
     public static void main(String[] args) {
         SpringApplication.run(GoogleSearchApplication.class, args);
@@ -28,7 +29,7 @@ public class GoogleSearchApplication implements CommandLineRunner {
             Scanner scanner = new Scanner(System.in);
             key = scanner.nextLine();
 
-            googleSearch.search(key);
+            assessment.googleSearchAndFindJS(key);
             System.out.println("Your username is " + key);
         }
 
